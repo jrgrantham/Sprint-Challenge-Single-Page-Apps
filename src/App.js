@@ -7,6 +7,7 @@ import {
 import axios from 'axios';
 import Header from "./components/Header.js";
 import WelcomePage from './components/WelcomePage';
+import CharacterList from './components/CharacterList';
 
 const characterApi = 'https://rickandmortyapi.com/api/character/';
 
@@ -17,8 +18,8 @@ export default function App() {
   useEffect(() => {
     axios.get(characterApi)
       .then(response => {
-        console.log(response);
-        console.log(response.data);
+        // console.log(response);
+        // console.log(response.data);
         console.log(response.data.results);
         setCharacterData(response.data.results);
       })
@@ -28,11 +29,11 @@ export default function App() {
   }, [])
 
   if (characterData) {
-
     return (
       <main>
         <Header />
         <WelcomePage />
+        <CharacterList characterList={characterData} />
       </main>
     );
 
