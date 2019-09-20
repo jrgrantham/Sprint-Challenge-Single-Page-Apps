@@ -30,14 +30,17 @@ export default function App() {
         <main>
           <Header />
           <nav>
-            <h2>
+            <h3>
               <Link to="/">Home </Link>
+              <Link to="/welcome-page/">Welcome </Link>
               <Link to="/characters/">Characters </Link>
-              <Link to="/users/">Users </Link>
-            </h2>
+            </h3>
           </nav>
-          <WelcomePage />
-          <CharacterList characterList={characterData} />
+          <Route path='/welcome-page' component={WelcomePage} />
+          <Route 
+            path='/characters' 
+            render={() => <CharacterList characterList={characterData} />}
+          />
         </main>
       </Router>
     );
