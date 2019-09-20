@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { 
   BrowserRouter as router,
   Route,
@@ -11,10 +11,36 @@ import WelcomePage from './components/WelcomePage';
 const characterApi = 'https://rickandmortyapi.com/api/character/';
 
 export default function App() {
-  return (
-    <main>
-      <Header />
-      <WelcomePage />
-    </main>
-  );
+
+  const [characterData, setCharacterData] = useState();
+
+  useEffect(() => {
+    axios.get(characterApi)
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+        console.log(response.data.results);
+        setCharacterData(response.data.results);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }, [])
+
+  if (characterData) {
+
+    return (
+      <main>
+        <Header />
+        <WelcomePage />
+      </main>
+    );
+
+  } else {
+    return (
+      <div>
+        <h1>Awaiting Data...</h1>
+      </div>
+    )
+  }
 }
