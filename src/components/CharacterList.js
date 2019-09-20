@@ -16,7 +16,7 @@ export default function CharacterList(props) {
   //   // TODO: Add API Request here - must run in `useEffect`
   //   //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
   // }, []);
-  console.log(characterList);
+  // console.log(characterList);
   return (
     <StyledSection className="character-list">
       <h2>

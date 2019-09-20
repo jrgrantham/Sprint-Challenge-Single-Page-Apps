@@ -16,7 +16,7 @@ export default function App() {
       .then(response => {
         // console.log(response);
         // console.log(response.data);
-        console.log(response.data.results);
+        // console.log(response.data.results);
         setCharacterData(response.data.results);
       })
       .catch(error => {
