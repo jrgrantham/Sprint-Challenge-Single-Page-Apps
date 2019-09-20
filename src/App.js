@@ -14,9 +14,9 @@ export default function App() {
     axios
       .get(characterApi)
       .then(response => {
-        // console.log(response);
-        // console.log(response.data);
-        // console.log(response.data.results);
+        console.log(response);
+        console.log(response.data);
+        console.log(response.data.results);
         setCharacterData(response.data.results);
       })
       .catch(error => {

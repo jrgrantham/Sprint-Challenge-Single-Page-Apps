@@ -1,8 +1,9 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
 import styled from "styled-components";
+import SearchForm from './SearchForm'
 
-const StyledSection = styled.section`
+const StyledDiv = styled.div`
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 50px;
@@ -18,18 +19,22 @@ export default function CharacterList(props) {
   // }, []);
   // console.log(characterList);
   return (
-    <StyledSection className="character-list">
-      <h2>
-        {/* TODO: `array.map()` over your state here! */}
-        {characterList.map(character => (
-          <CharacterCard
-            key={character.id}
-            name={character.name}
-            species={character.species}
-            status={character.status}
-          />
-        ))}
-      </h2>
-    </StyledSection>
+    <section>
+      <SearchForm />
+      <StyledDiv className="character-list">
+        <h2>
+          {/* TODO: `array.map()` over your state here! */}
+          {characterList.map(character => (
+            <CharacterCard
+              key={character.id}
+              name={character.name}
+              species={character.species}
+              status={character.status}
+              imgUrl={character.image}
+            />
+          ))}
+        </h2>
+      </StyledDiv>
+    </section>
   );
 }

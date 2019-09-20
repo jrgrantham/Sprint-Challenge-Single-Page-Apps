@@ -11,9 +11,12 @@ const StyledCharacter = styled.div`
 `;
 
 export default function CharacterCard(props) {
-  const { name, species, status } = props;
+  const { name, species, status, imgUrl } = props;
   return (
     <StyledCharacter>
+      <div>
+        <img src={imgUrl}/>
+      </div>
       {name} is a {species}, status: {status}
     </StyledCharacter>
   );

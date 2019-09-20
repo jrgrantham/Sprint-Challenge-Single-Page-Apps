@@ -1,8 +1,5 @@
 import React from "react";
 
-const characterApi = 'https://rickandmortyapi.com/api/character/';
-
-
 export default function WelcomePage() {
   return (
     <section className="welcome-page">
