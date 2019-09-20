@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import CharacterCard from "./CharacterCard";
 
 export default function CharacterList(props) {
   const {characterList} = props;
@@ -13,9 +14,14 @@ export default function CharacterList(props) {
     <section className="character-list">
       <h2>TODO: `array.map()` over your state here!
         {
-          characterList.map((character) => {
-            return <p>{character.name}</p>
-          })
+          characterList.map((character) => (
+            <CharacterCard
+              key={character.id}
+              name={character.name}
+              species={character.species}
+              status={character.status}
+            />
+          ))
         }
       </h2>
     </section>
